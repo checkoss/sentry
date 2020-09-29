@@ -6,7 +6,7 @@ import ExternalLink from 'app/components/links/externalLink';
 
 import ModalManager from '../modalManager';
 import Steps from './steps';
-import Step from './step';
+import Terminal from './terminal';
 
 class Add extends ModalManager {
   getTitle() {
@@ -26,29 +26,30 @@ class Add extends ModalManager {
 
   getContent() {
     return (
-      <Steps>
-        <Step
-          title={tct('Initialize the configuration. [link: Learn how]', {
-            link: (
-              <ExternalLink href="https://docs.sentry.io/product/relay/getting-started/#initializing-configuration" />
-            ),
-          })}
-        >
-          {'okokok'}
-        </Step>
-        <Step
-          title={tct(
-            'Go to the file [jsonFile: credentials.json] to find the public key and enter it below.',
-            {
-              jsonFile: (
-                <CredentialsLink href="https://docs.sentry.io/product/relay/getting-started/#registering-relay-with-sentry" />
+      <Steps
+        steps={[
+          {
+            title: tct('Initialize the configuration. [link: Learn how]', {
+              link: (
+                <ExternalLink href="https://docs.sentry.io/product/relay/getting-started/#initializing-configuration" />
               ),
-            }
-          )}
-        >
-          {this.getForm()}
-        </Step>
-      </Steps>
+            }),
+            subtitle: t('Within your terminal.'),
+            content: <Terminal command="./relay config init" />,
+          },
+          {
+            title: tct(
+              'Go to the file [jsonFile: credentials.json] to find the public key and enter it below.',
+              {
+                jsonFile: (
+                  <CredentialsLink href="https://docs.sentry.io/product/relay/getting-started/#registering-relay-with-sentry" />
+                ),
+              }
+            ),
+            content: super.getForm(),
+          },
+        ]}
+      />
     );
   }
 }

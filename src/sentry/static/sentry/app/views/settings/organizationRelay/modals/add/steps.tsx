@@ -1,22 +1,39 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-type Props = {
-  children: Array<React.ReactElement>;
+import space from 'app/styles/space';
+
+type Step = {
+  title: React.ReactNode;
+  content: React.ReactElement;
+  subtitle?: string;
 };
 
-const Steps = ({children}: Props) => (
-  <React.Fragment>
-    {React.Children.map(children, (child, index) => (
-      <React.Fragment>
+type Props = {
+  steps: Array<Step>;
+};
+
+const Steps = ({steps}: Props) => (
+  <Wrapper>
+    {steps.map(({title, subtitle, content}, index) => (
+      <Step key={index}>
         <Bullet>{index + 1}</Bullet>
-        {child}
-      </React.Fragment>
+        <div>
+          <Title>{title}</Title>
+          {subtitle && <Subtitle>{subtitle}</Subtitle>}
+          {content}
+        </div>
+      </Step>
     ))}
-  </React.Fragment>
+  </Wrapper>
 );
 
 export default Steps;
+
+const Wrapper = styled('div')`
+  display: grid;
+  grid-gap: ${space(4)};
+`;
 
 const Bullet = styled('div')`
   width: 24px;
@@ -27,4 +44,19 @@ const Bullet = styled('div')`
   border-radius: 50%;
   background: ${p => p.theme.yellow400};
   font-size: ${p => p.theme.fontSizeSmall};
+`;
+
+const Title = styled('div')`
+  margin-bottom: ${space(1.5)};
+`;
+
+const Subtitle = styled('div')`
+  font-size: ${p => p.theme.fontSizeMedium};
+  margin-bottom: ${space(1)};
+`;
+
+const Step = styled('div')`
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-gap: ${space(1.5)};
 `;
