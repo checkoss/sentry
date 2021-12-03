@@ -9,8 +9,8 @@ datadog>=0.15.0,<0.31.0
 django-crispy-forms==1.7.2
 django-picklefield>=0.3.0,<1.1.0
 django-sudo>=3.0.0,<4.0.0
-Django>=1.11,<1.12
-djangorestframework==3.6.4
+Django>=2.2.24,<1.12
+djangorestframework==3.11.2
 email-reply-parser>=0.2.0,<0.3.0
 enum34>=1.1.6,<1.2.0 ; python_version < "3.4"
 functools32>=3.2.3,<3.3 ; python_version < "3.2"
@@ -32,7 +32,7 @@ msgpack>=0.6.1,<0.7.0
 parsimonious==0.8.0
 petname>=2.6,<2.7
 phonenumberslite>=8.11.0,<8.12.0
-Pillow>=6.2.2,<7.0.0
+Pillow>=8.3.2,<7.0.0
 progressbar2>=3.32,<3.33
 psycopg2-binary>=2.7.0,<2.9.0
 PyJWT>=1.5.0,<1.6.0
@@ -41,7 +41,7 @@ python-dateutil>=2.0.0,<3.0.0
 python-memcached>=1.53,<2.0.0
 python3-saml>=1.4.0,<1.5
 python-u2flib-server>=5.0.0,<6.0.0
-PyYAML>=5.3,<5.4
+PyYAML>=5.4,<5.4
 qrcode>=6.1.0,<6.2.0
 rb>=1.8.0,<2.0.0
 redis-py-cluster==2.1.0
@@ -63,7 +63,7 @@ symbolic>=7.3.5,<8.0.0
 toronado>=0.0.11,<0.1.0
 ua-parser>=0.10.0,<0.11.0
 unidiff>=0.5.4
-urllib3==1.24.2
+urllib3==1.26.5
 uwsgi>2.0.0,<2.1.0
 
 # celery
