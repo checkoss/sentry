@@ -85,7 +85,7 @@
     "js-cookie": "2.2.1",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "marked": "0.7.0",
     "mini-css-extract-plugin": "^v0.5.0",
     "mobx": "^5.13.0",
@@ -131,7 +131,8 @@
     "webpack-cli": "3.3.11",
     "webpack-fix-style-only-entries": "^0.2.0",
     "wink-jaro-distance": "^2.0.0",
-    "zxcvbn": "^4.4.2"
+    "zxcvbn": "^4.4.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-source": "^7.2.0",
@@ -208,10 +209,13 @@
     "build-derefed-docs": "node api-docs/index.js api-docs/openapi.json",
     "build-css": "NODE_ENV=production yarn webpack --config=config/webpack.css.config.js",
     "build": "NODE_ENV=production yarn webpack --mode production --display errors-only --output-path=public",
-    "validate-api-examples": "openapi-examples-validator ./api-docs/openapi.json --no-additional-properties"
+    "validate-api-examples": "openapi-examples-validator ./api-docs/openapi.json --no-additional-properties",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "volta": {
     "node": "10.21.0",
     "yarn": "1.22.4"
-  }
+  },
+  "snyk": true
 }
